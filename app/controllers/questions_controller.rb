@@ -7,7 +7,6 @@ class QuestionsController < ApplicationController
 
   def index
     @poll = Poll.find(params[:poll_id])
-    logger.info '---------------------------------------------------------------------'
     @questions = Question.where(:poll_id => @poll.id)
   end
 
@@ -15,8 +14,11 @@ class QuestionsController < ApplicationController
     @poll = Poll.find(params[:poll_id])
     @question = Question.new(params[:question])
     @question.poll_id = @poll.id
-    @question.save
-    redirect_to @poll
+    if @question.save
+      render '/polls/edit'
+    else
+      render 'new'
+    end
   end
 
 end

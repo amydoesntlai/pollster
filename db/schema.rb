@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(:version => 20121120173500) do
 
   create_table "polls", :force => true do |t|
     t.string   "name"
-    t.string   "poll_link"
     t.string   "admin_link"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

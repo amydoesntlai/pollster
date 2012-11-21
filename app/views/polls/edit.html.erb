@@ -1,4 +1,6 @@
 Admin page
 
-<%= render 'public_view' %>
+<%= render '/polls/public_view' %>
 <h4>Admin URL: <%= link_to @poll.admin_link, @poll.admin_link %></h4>
+<%= render @poll.questions %>
+<%= render :partial => '/questions/new', :question => @poll.questions.build %>
