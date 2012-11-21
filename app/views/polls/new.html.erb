@@ -1,0 +1,7 @@
+<h1>Create a new poll</h1>
+
+<%= form_for @poll do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>
