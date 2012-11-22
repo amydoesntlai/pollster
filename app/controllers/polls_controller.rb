@@ -1,5 +1,9 @@
 class PollsController < ApplicationController
 
+  def index
+    @polls = Poll.all
+  end
+
   def new
     @poll = Poll.new
   end
@@ -7,7 +11,7 @@ class PollsController < ApplicationController
   def create
     @poll = Poll.new(params[:poll])
     @poll.set_admin_link
-
+    @question = Question.new
     if @poll.save
       render 'edit'
     else
@@ -19,6 +23,7 @@ class PollsController < ApplicationController
   end
 
   def show
+    @question = Question.new
     if params[:id]
       @poll = Poll.find(params[:id])
     elsif params[:link]

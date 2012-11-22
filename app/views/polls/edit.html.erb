@@ -8,4 +8,4 @@ Admin page
   <%= link_to 'Destroy', poll_question_path(@poll, question), method: :delete, data: { confirm: 'Are you sure?'} %>
   <br>
 <% end %>
-<%= render :partial => '/questions/new' %>
+<%= render '/questions/form' %>

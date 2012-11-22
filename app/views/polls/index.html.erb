@@ -1,0 +1,5 @@
+<% @polls.each do |poll| %>
+  <%= link_to poll.name, poll %><br>
+<% end %>
+
+<%= link_to 'New Poll', new_poll_path(Poll.new) %><br>
