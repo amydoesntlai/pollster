@@ -16,7 +16,6 @@ class PollsController < ApplicationController
   end
 
   def edit
-    redirect_to root_path
   end
 
   def show

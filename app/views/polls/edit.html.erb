@@ -1,6 +1,11 @@
 Admin page
 
 <%= render '/polls/public_view' %>
-<h4>Admin URL: <%= link_to @poll.admin_link, @poll.admin_link %></h4>
-<%= render @poll.questions %>
-<%= render :partial => '/questions/new', :question => @poll.questions.build %>
+<h4>Admin URL: <%= link_to @poll.admin_link, admin_link_path(@poll.admin_link) %></h4>
+<% @poll.questions.each do |question| %>
+  <%= question.content %>
+  <%= link_to 'Edit', edit_poll_question_path(@poll, question) %>
+  <%= link_to 'Destroy', poll_question_path(@poll, question), method: :delete, data: { confirm: 'Are you sure?'} %>
+  <br>
+<% end %>
+<%= render :partial => '/questions/new' %>
